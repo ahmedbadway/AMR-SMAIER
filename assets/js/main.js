@@ -2,9 +2,11 @@
 const nav = document.querySelector('.nav');
 const isHome = document.body.dataset.page === 'home';
 
+// Page-hero pages get transparent nav at top, solid on scroll (just like home)
+const hasPageHero = !!document.querySelector('.page-hero, .hero');
 function updateNav() {
   if (!nav) return;
-  if (isHome) {
+  if (hasPageHero) {
     nav.classList.toggle('solid', window.scrollY > 60);
   } else {
     nav.classList.add('solid');
